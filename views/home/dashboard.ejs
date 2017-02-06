@@ -61,12 +61,16 @@
 
   <div class="container-fluid tweets">
     <% for (let i = 0; i < tweets.length; i += 1) { %>
-      <div class="tweet">
+      <div class="tweet col-xs-12">
+        <div class ="hidden-sm hidden-xs col-xs-3">
+        <img src="http://unsplash.it/100?random" alt="" class="image">
+        </div>
+        <div class="col-xs-12 col-md-9">
       <h4><%= names[i] %></h4>
       <p> <%= tweets[i] %></p>
       <p class="text-right"><small><%= `Posted: ${date[i]}` %></small></p>
+      </div>
     </div>
-
     <% }  %>
   </div>
 </div>

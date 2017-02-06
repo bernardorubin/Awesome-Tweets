@@ -12,8 +12,8 @@
       </div>
     </div>
     <div class="col-xs-6">
-    <h1 class="namer";><%= names[0] %></h1>
-    <p><%= `@${names[0]}` %></p>
+    <h1 class="namer";><%= names[names.length-1] %></h1>
+    <p><%= `@${names[names.length-1]}` %></p>
     </div>
 
 
@@ -55,10 +55,15 @@
 
   <div class="container-fluid tweets">
     <% for (let i = tweets.length-1; i>= 0; i -= 1) { %>
-      <div class="tweet">
+      <div class="tweet col-xs-12">
+        <div class ="hidden-sm hidden-xs col-xs-3">
+        <img src="http://unsplash.it/100?random" alt="" class="image">
+        </div>
+        <div class="col-xs-12 col-md-9">
       <h4><%= names[i] %></h4>
       <p> <%= tweets[i] %></p>
       <p class="text-right"><small><%= `Posted: ${dates[i]}` %></small></p>
+      </div>
     </div>
     <% }  %>
   </div>
