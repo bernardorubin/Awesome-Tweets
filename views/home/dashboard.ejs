@@ -1,0 +1,75 @@
+<%- include('../partials/header') %>
+
+
+<% let tweets = cookies.tweet.split(",");  %>
+<% let names = cookies.name.split(",");  %>
+<% let date = cookies.dates.split(",");  %>
+
+
+
+<div class="col-md-4 hidden-sm hidden-xs">
+
+  <div class="container-fluid form-dash">
+    <div class="col-xs-6">
+      <img src="http://unsplash.it/130?random" alt="" class="image">
+    <div class="messages">
+      <p>Messages</p>
+      <p><%= Math.floor(faker.random.number()/10) %></p>
+      </div>
+    </div>
+    <div class="col-xs-6">
+    <h1 class="namer";><%= names[0] %></h1>
+    <p><%= `@${names[0]}` %></p>
+    </div>
+
+
+
+  </div>
+  <h1>Trending Tweets</h1>
+  <div class="container-fluid form-dash">
+
+  <div class="col-xs-12">
+    <% for (let i = 0; i < 5; i += 1) { %>
+      <p><%= `# ${faker.lorem.word()}` %></p>
+      <% } %>
+    </div>
+  </div>
+
+
+</div>
+
+<div class="col-md-8">
+  <div class="container-fluid form-dash">
+    <form method="post" action>
+      <div>
+        <label for="name"></label>
+        <input id="name" name="name" placeholder="Username" class="form-control username">
+      </div>
+      <div>
+        <label for="tweet"> </label>
+        <textarea id="tweet" name="tweet" maxlength="255" placeholder="Write message here..." class="form-control"></textarea>
+      </div>
+      <div class="col-xs-6">
+        <input id="dates" name="dates" value="<%= Date() %>">
+      </div>
+
+      <div class="text-right col-xs-6">
+        <input type="submit" name="submit" class="btn btn-default submit">
+      </div>
+    </form>
+  </div>
+
+  <div class="container-fluid tweets">
+    <% for (let i = 0; i < tweets.length; i += 1) { %>
+      <div class="tweet">
+      <h4><%= names[i] %></h4>
+      <p> <%= tweets[i] %></p>
+      <p class="text-right"><small><%= `Posted: ${date[i]}` %></small></p>
+    </div>
+
+    <% }  %>
+  </div>
+</div>
+
+
+<%- include('../partials/footer') %>
