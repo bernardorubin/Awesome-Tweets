@@ -25,7 +25,8 @@ router.get('/dashboard', function(request, response){
     if(err){
       console.error('DB Pool Connection Error');
     }
-    client.query('SELECT * FROM "tweetTable";', function(qErr, result){
+    // stretch sort by character length  ------------------------->👇
+    client.query('SELECT * FROM "tweetTable" ORDER BY CHAR_LENGTH(tweet);', function(qErr, result){
       done();
       if (qErr) {
         return console.error('SELECT Query Error');
@@ -42,8 +43,6 @@ router.get('/dashboard', function(request, response){
       result.rows.forEach(function(x){
         dates.push(x.date);
       });
-
-
       console.log(tweets);
       response.render('home/dashboardDB', {tweets: tweets, names: names, dates: dates, faker: faker})
     });

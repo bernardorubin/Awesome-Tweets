@@ -15,21 +15,15 @@
     <h1 class="namer";><%= names[names.length-1] %></h1>
     <p><%= `@${names[names.length-1]}` %></p>
     </div>
-
-
-
   </div>
   <h1>Trending Tweets</h1>
   <div class="container-fluid form-dash">
-
   <div class="col-xs-12">
     <% for (let i = 0; i < 5; i += 1) { %>
       <p><%= `# ${faker.lorem.word()}` %></p>
       <% } %>
     </div>
   </div>
-
-
 </div>
 
 <div class="col-md-8">
